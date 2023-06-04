@@ -7,16 +7,18 @@
                 <div class="flex flex-col items-center">
                     <div>
                         <img class="" src="https://source.unsplash.com/716x432.85?montain" alt="">
-                        <h1 class="font-bold tracking-widest text-3xl mt-14">Lorem ipsum dolor sit amet.</h1>
+                        <h1 class="font-bold tracking-widest text-3xl mt-14">{{ $blog->blog_title }}</h1>
                         <div class="mt-8">
-                            <span class="mr-3 text-sm uppercase tracking-widest">By REHAN</span>
+                            <span class="mr-3 text-sm uppercase tracking-widest">by {{ $blog->User->name }}</span>
                             <span class="mr-3 text-sm uppercase tracking-widest">|</span>
-                            <span class="mr-3 text-sm uppercase tracking-widest">Date</span>
+                            <span class="mr-3 text-sm uppercase tracking-widest">{{ substr($blog->created_at, 0, 10) }}</span>
                             <span class="mr-3 text-sm uppercase tracking-widest">|</span>
-                            <span class=" text-sm uppercase tracking-widest">Kategori</span>
+                            @foreach ($blog->Categories as $category)
+                            <span class=" text-sm uppercase tracking-widest">{{ $category->category }},</span>
+                            @endforeach
                         </div>
                         <div class="mt-14 max-w-3xl">
-                            <p class="tracking-wider">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, aspernatur quo sequi recusandae minima quidem repellat saepe provident est praesentium hic, facere incidunt non ab tenetur dolore. Dolor autem voluptatibus dolore alias dignissimos eum quaerat non odio minima nemo fugiat earum temporibus magni dolores, recusandae nobis ad corrupti! Ipsam, porro at nam laboriosam illo nobis ea consectetur necessitatibus ab, non praesentium, dignissimos esse explicabo quod delectus optio incidunt? Assumenda est mollitia ullam, quia a quas autem recusandae consectetur voluptatibus quaerat temporibus aperiam officia, veniam deserunt sapiente ad. Laborum dolore nobis nemo recusandae! Deleniti laboriosam, dolorem iste ipsa in error quod corporis rem debitis officia excepturi nisi voluptatibus reiciendis incidunt odit cum fugiat ad consectetur quia quaerat sequi a. Dolore earum dicta ipsam. Minima placeat dolore molestiae at amet asperiores temporibus esse odit vel! Iure amet consequuntur odio earum quod? Amet hic dicta soluta eaque ratione eligendi odit eveniet autem ea perspiciatis vel tenetur architecto quam nam non voluptates accusamus facere quidem nobis, cumque rerum corporis obcaecati quae. Sapiente sunt delectus rerum ipsam labore similique accusamus ullam sequi, ratione consequatur. Ipsum nemo sit recusandae aperiam, vitae, aut possimus debitis nulla aspernatur quod odio illo culpa cumque corporis dolores? Reprehenderit, excepturi facere.</p>
+                            <p class="tracking-wider">{{ $blog->blog_content }}</p>
                         </div>
                     </div>
                 </div>

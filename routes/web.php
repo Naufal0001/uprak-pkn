@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\MainControlller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +19,19 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/news', function () {
-    return view('news');
-});
 
 Route::get('/post/nama-post', function () {
     return view('post');
+});
+
+Route::group(['middleware' => "guest"], function(){
+    Route::prefix('news')->group(function(){
+       Route::get('/', [MainControlller::class, 'index'])->name('news'); 
+       Route::get('/{blog:blog_title}', [MainControlller::class, 'show'])->name('newsShow'); 
+    });
+});
+
+
+Route::group(["middleware"=> "auth"], function(){
+    Route::resource('/blogs', BlogController::class);
 });

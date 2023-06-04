@@ -26,7 +26,7 @@
                 </div>
             </nav>
             <div id="content" class="grid md:grid-cols-3 grid-cols-1 gap-24 mt-20">
-                @for ($i = 1; $i <= 12; $i++)
+                @foreach ($blogs as $blog)
                     <div class="flex flex-col">
                         <a href="#" class="group">
                             <div class="relative overflow-hidden group-hover:right-0">
@@ -34,7 +34,9 @@
                                     src="https://source.unsplash.com/600x400?montain" alt="">
                                 <div
                                     class="flex w-full h-full top-0 -right-full group-hover:right-0 absolute backdrop-blur-sm bg-black opacity-50 text-xs p-4 gap-2 uppercase rounded-lg">
-                                    <span class="text-white tracking-widest">Kategori</span>
+                                    @foreach ($blog->Categories as $category)
+                                        <span class="text-white tracking-widest">{{ $category->category }}</span>
+                                    @endforeach
                                     <span class="text-white">|</span>
                                     <span class="text-white tracking-widest">Date</span>
                                     <div class="flex items-center text-white text-base">
@@ -44,11 +46,11 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="#" class="mt-6 self-start">
-                            <span class="font-bold uppercase tracking-wider text-sm">Lorem ipsum dolor sit amet.</span>
+                        <a href="{{ route('newsShow', $blog->blog_title) }}" class="mt-6 self-start">
+                            <span class="font-bold uppercase tracking-wider text-sm">{{ $blog->blog_title }}</span>
                         </a>
                     </div>
-                @endfor
+                @endforeach
             </div>
             <div class="container relative z-10 drop-shadow-lg">
                 <a href="#"
