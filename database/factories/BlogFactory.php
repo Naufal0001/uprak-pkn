@@ -20,7 +20,7 @@ class BlogFactory extends Factory
     {
         return [
             'blog_title' => fake()->title(),
-            'blog_content' => Str::random(100),
+            'blog_content' => fake()->paragraph(),
             'user_id'   => rand(1, 10),
             'chapter_id' => rand(1, 10)
         ];

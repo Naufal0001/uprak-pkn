@@ -23,15 +23,17 @@
                     <span class="bg-purple-400 hover:bg-purple-500 focus:ring-4 focus:outline-none focus:ring-purple-300 font-bold rounded-lg px-4 py-2 tracking-[0.25em] uppercase">popular post <i class="fa-solid fa-arrow-right"></i></span>
                 </a>
                 <div class="grid md:grid-cols-3 grid-cols-1 gap-24">
-                    @for ($i = 0; $i <= 2; $i++)
+                    @foreach ($random_blogs as $random_blog)
                     <div class="flex flex-col">
                         <a href="#" class="group">
                         <div class="relative overflow-hidden group-hover:right-0">
                             <img class="w-full h-full object-cover rounded-lg" src="https://source.unsplash.com/600x400?laptop" alt="">
                             <div class="flex w-full h-full top-0 -right-full group-hover:right-0 absolute backdrop-blur-sm bg-black opacity-50 text-xs p-4 gap-2 uppercase rounded-lg">
-                                <span class="text-white tracking-widest">Kategori</span>
+                                @foreach ($random_blog->Categories as $random_categories)
+                                <span class="text-white tracking-widest">{{ $random_categories->category  }}</span>
+                                @endforeach
                                 <span class="text-white">|</span>
-                                <span class="text-white tracking-widest">Date</span>
+                                <span class="text-white tracking-widest">{{ substr($random_blog->created_at, 0, 10) }}</span>
                                 <div class="flex items-center text-white text-base">
                                         <span class="text-white font-bold tracking-[0.25em] mr-3">view</span>
                                         <i class="text-white fa-solid fa-arrow-right"></i>
@@ -39,11 +41,33 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="#" class="mt-6 self-start">
-                            <span class="font-bold uppercase tracking-wider text-sm">Lorem ipsum dolor sit amet.</span>
+                        <a href="{{ route("newsShow", $random_blog->blog_title) }}" class="mt-6 self-start">
+                            <span class="font-bold uppercase tracking-wider text-sm">{{ $random_blog->blog_title }}</span>
                         </a>
                     </div>
-                    @endfor
+                    @endforeach
+                </div>
+            </div>
+            <div class="flex flex-col gap-16 mb-24">
+                <a href="#">
+                    <span class="bg-purple-400 hover:bg-purple-500 focus:ring-4 focus:outline-none focus:ring-purple-300 font-bold rounded-lg px-4 py-2 tracking-[0.25em] uppercase">Chapter List<i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+                <div class="grid md:grid-cols-3 grid-cols-1 gap-24">
+                    @foreach ($chapters as $chapter)
+                    <div class="flex flex-col">
+                        <a href="{{ route('showChapter', $chapter->chapter) }}" class="group">
+                        <div class="relative overflow-hidden group-hover:right-0">
+                            <img class="w-full h-full object-cover rounded-lg" src="https://source.unsplash.com/600x400?laptop" alt="">
+                            <div class="flex w-full h-full top-0 -right-full group-hover:right-0 absolute backdrop-blur-sm bg-black opacity-50 text-xs p-4 gap-2 uppercase rounded-lg">
+                                <div class="flex items-center text-white text-base">
+                                        <span class="text-white font-bold tracking-[0.25em] mr-3">{{ $chapter->chapter }}</span>
+                                        <i class="text-white fa-solid fa-arrow-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="flex flex-col gap-16">
@@ -51,15 +75,17 @@
                     <span class="bg-purple-400 hover:bg-purple-500 focus:ring-4 focus:outline-none focus:ring-purple-300 font-bold rounded-lg px-4 py-2 tracking-[0.25em] uppercase">latest post <i class="fa-solid fa-arrow-right"></i></span>
                 </a>
                 <div class="grid md:grid-cols-3 grid-cols-1 gap-24">
-                    @for ($i = 0; $i <= 5; $i++)
+                    @foreach ($blogs as $blog)
                     <div class="flex flex-col">
-                        <a href="/post/nama-post/" class="group">
+                        <a href="{{ route('newsShow', $blog->blog_title) }}" class="group">
                         <div class="relative overflow-hidden group-hover:right-0">
                             <img class="w-full h-full object-cover rounded-lg" src="https://source.unsplash.com/600x400?montain" alt="">
                             <div class="flex w-full h-full top-0 -right-full group-hover:right-0 absolute backdrop-blur-sm bg-black opacity-50 text-xs p-4 gap-2 uppercase rounded-lg">
-                                <span class="text-white tracking-widest">Kategori</span>
+                                @foreach ($blog->Categories as $blog_categories)
+                                <span class="text-white tracking-widest">{{ $blog_categories->category }}</span>
+                                @endforeach
                                 <span class="text-white">|</span>
-                                <span class="text-white tracking-widest">Date</span>
+                                <span class="text-white tracking-widest">{{ substr($blog->created_at,0,10) }}</span>
                                 <div class="flex items-center text-white text-base">
                                         <span class="text-white font-bold tracking-[0.25em] mr-3">view</span>
                                         <i class="text-white fa-solid fa-arrow-right"></i>
@@ -67,11 +93,11 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="/post/nama-post/" class="mt-6 self-start">
-                            <span class="font-bold uppercase tracking-wider text-sm">Lorem ipsum dolor sit amet.</span>
+                        <a href="{{ route('newsShow', $blog->blog_title) }}" class="mt-6 self-start">
+                            <span class="font-bold uppercase tracking-wider text-sm">{{ $blog->blog_title }}</span>
                         </a>
                     </div>
-                    @endfor
+                    @endforeach
                 </div>
                 <span class="text-center bg-purple-400 hover:bg-purple-500 focus:ring-4 focus:outline-none focus:ring-purple-300 font-bold rounded-lg px-4 py-2 mx-auto tracking-[0.25em] uppercase">
                     <a href="">more <i class="fa-solid fa-arrow-right"></i></a>

@@ -4,24 +4,12 @@
     <div class="container mx-auto">
         <div class="md:m-32 my-32 mx-6">
             <nav class="bg-transparent py-6">
-                <div class="flex justify-center">
-                    <form action="{{ route('news') }}">
-                    <input name="search" class="w-[500px] rounded-lg bg-transparent border-2 text-black" type="text">
-                    </form>
-                </div>
-                <div class="p-4">
-                    <ul
-                        class="flex flex-wrap m-0 p-0 font-extrabold border border-gray-100 rounded-lg gap-6 uppercase tracking-[0.2em] justify-center text-xs">
-                        @foreach ($categories as $category)
-                        <li class="hover:opacity-60 duration-300">
-                            <a href="{{ route('news', ['category' => $category->category]) }}">{{ $category->category }}</a>
-                        </li>
-                        @endforeach
-                    </ul>
-                </div>
+                <h1 class="text-center text-2xl font-bold uppercase">
+                    {{ $chapter->chapter }}
+                </h1>
             </nav>
             <div id="content" class="grid md:grid-cols-3 grid-cols-1 gap-24 mt-20">
-                @foreach ($blogs as $blog)
+                @foreach ($chapter->Blogs as $blog)
                     <div class="flex flex-col">
                         <a href="#" class="group">
                             <div class="relative overflow-hidden group-hover:right-0">
