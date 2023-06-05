@@ -6,7 +6,7 @@
         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
     </a>
     <div class="flex md:order-2">
-        <button type="button" class="hidden md:block bg-purple-400 hover:bg-purple-500 focus:ring-4 focus:outline-none focus:ring-purple-300 font-bold rounded-lg text-xs tracking-[0.25em] px-4 py-2 text-center mr-3 md:mr-0 uppercase">Get started</button>
+        <a href="/dashboard" class="hidden md:block bg-purple-400 hover:bg-purple-500 focus:ring-4 focus:outline-none focus:ring-purple-300 font-bold rounded-lg text-xs tracking-[0.25em] px-4 py-2 text-center mr-3 md:mr-0 uppercase cursor-pointer">Get started</a>
         <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 md:hidden" aria-controls="navbar-sticky" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
           <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>

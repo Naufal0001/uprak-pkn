@@ -24,6 +24,10 @@ Route::get('/post/nama-post', function () {
     return view('post');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+
 Route::group(['middleware' => "guest"], function(){
     Route::prefix('news')->group(function(){
        Route::get('/', [MainControlller::class, 'index'])->name('news'); 

@@ -32,7 +32,7 @@
                                 <span class="text-white tracking-widest">Kategori</span>
                                 <span class="text-white">|</span>
                                 <span class="text-white tracking-widest">Date</span>
-                                <div class="flex items-center text-white text-base">
+                                <div class="flex items-center absolute top-28 left-36 text-white text-base">
                                         <span class="text-white font-bold tracking-[0.25em] mr-3">view</span>
                                         <i class="text-white fa-solid fa-arrow-right"></i>
                                     </div>
@@ -60,7 +60,7 @@
                                 <span class="text-white tracking-widest">Kategori</span>
                                 <span class="text-white">|</span>
                                 <span class="text-white tracking-widest">Date</span>
-                                <div class="flex items-center text-white text-base">
+                                <div class="flex items-center absolute top-28 left-36 text-white text-base">
                                         <span class="text-white font-bold tracking-[0.25em] mr-3">view</span>
                                         <i class="text-white fa-solid fa-arrow-right"></i>
                                     </div>
@@ -74,7 +74,7 @@
                     @endfor
                 </div>
                 <span class="text-center bg-purple-400 hover:bg-purple-500 focus:ring-4 focus:outline-none focus:ring-purple-300 font-bold rounded-lg px-4 py-2 mx-auto tracking-[0.25em] uppercase">
-                    <a href="">more <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="/news">more <i class="fa-solid fa-arrow-right"></i></a>
                 </span>
                 <div class="container relative z-10 drop-shadow-lg">
                     <a href="#" class="flex w-12 h-16 absolute right-5 border-2 border-black items-center justify-center text-2xl">

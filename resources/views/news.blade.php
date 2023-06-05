@@ -32,14 +32,13 @@
                             <div class="relative overflow-hidden group-hover:right-0">
                                 <img class="w-full h-full object-cover rounded-lg"
                                     src="https://source.unsplash.com/600x400?montain" alt="">
-                                <div
-                                    class="flex w-full h-full top-0 -right-full group-hover:right-0 absolute backdrop-blur-sm bg-black opacity-50 text-xs p-4 gap-2 uppercase rounded-lg">
+                                <div class="flex w-full h-full top-0 -right-full group-hover:right-0 absolute backdrop-blur-sm bg-black opacity-50 text-xs p-4 gap-2 uppercase rounded-lg">
                                     @foreach ($blog->Categories as $category)
                                         <span class="text-white tracking-widest">{{ $category->category }}</span>
                                     @endforeach
                                     <span class="text-white">|</span>
                                     <span class="text-white tracking-widest">Date</span>
-                                    <div class="flex items-center text-white text-base">
+                                    <div class="flex items-center absolute top-28 left-36 text-white text-base">
                                         <span class="text-white font-bold tracking-[0.25em] mr-3">view</span>
                                         <i class="text-white fa-solid fa-arrow-right"></i>
                                     </div>
