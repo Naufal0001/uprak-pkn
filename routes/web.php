@@ -15,23 +15,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
-
-Route::get('/post/nama-post', function () {
-    return view('post');
-});
-
-Route::get('/dashboard', function () {
+Route::get('/dashboard', function(){
     return view('dashboard');
 });
 
+Route::get('/data', function(){
+    return view('data-table');
+});
+
+Route::get('/create', function(){
+    return view('create');
+});
+
 Route::group(['middleware' => "guest"], function(){
+    Route::get('/', [MainControlller::class, 'home'])->name('Home');
+
     Route::prefix('news')->group(function(){
        Route::get('/', [MainControlller::class, 'index'])->name('news'); 
-       Route::get('/{blog:blog_title}', [MainControlller::class, 'show'])->name('newsShow'); 
+       Route::get('/{blog:blog_title}', [MainControlller::class, 'show'])->name('newsShow');   
+       Route::get('/{chapter:chapter}/chapter', [MainControlller::class, 'showChapter'])->name('showChapter');   
     });
 });
 

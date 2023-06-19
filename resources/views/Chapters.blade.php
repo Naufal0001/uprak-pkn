@@ -4,42 +4,25 @@
     <div class="container mx-auto">
         <div class="md:m-32 my-32 mx-6">
             <nav class="bg-transparent py-6">
-                <div class="flex justify-center">
-                    <form action="{{ route('news') }}">
-                        <div class="relative w-full">
-                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                <svg aria-hidden="true" class="w-5 h-5 text-gray-500" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                            <input name="search" type="text" class="bg-transparent border-2 uppercase tracking-widest text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full pl-10 p-2">
-                        </div>
-                    </form>
-                </div>
-                <div class="p-4">
-                    <ul
-                        class="flex flex-wrap m-0 p-0 font-extrabold border border-gray-100 rounded-lg gap-6 uppercase tracking-[0.2em] justify-center text-xs">
-                        @foreach ($categories as $category)
-                        <li class="hover:opacity-60 duration-300">
-                            <a href="{{ route('news', ['category' => $category->category]) }}">{{ $category->category }}</a>
-                        </li>
-                        @endforeach
-                    </ul>
-                </div>
+                <h1 class="text-center text-2xl font-bold uppercase">
+                    {{ $chapter->chapter }}
+                </h1>
             </nav>
             <div id="content" class="grid md:grid-cols-3 grid-cols-1 gap-24 mt-20">
-                @foreach ($blogs as $blog)
+                @foreach ($chapter->Blogs as $blog)
                     <div class="flex flex-col">
                         <a href="#" class="group">
                             <div class="relative overflow-hidden group-hover:right-0">
                                 <img class="w-full h-full object-cover rounded-lg"
                                     src="https://source.unsplash.com/600x400?montain" alt="">
-                                <div class="flex w-full h-full top-0 -right-full group-hover:right-0 absolute backdrop-blur-sm bg-black opacity-50 text-xs p-4 gap-2 uppercase rounded-lg">
+                                <div
+                                    class="flex w-full h-full top-0 -right-full group-hover:right-0 absolute backdrop-blur-sm bg-black opacity-50 text-xs p-4 gap-2 uppercase rounded-lg">
                                     @foreach ($blog->Categories as $category)
                                         <span class="text-white tracking-widest">{{ $category->category }}</span>
                                     @endforeach
-                                    <span class="text-white tracking-widest absolute bottom-3 right-4">Date</span>
-                                    <div class="flex items-center absolute top-28 left-36 text-white text-base">
+                                    <span class="text-white">|</span>
+                                    <span class="text-white tracking-widest">Date</span>
+                                    <div class="flex items-center text-white text-base">
                                         <span class="text-white font-bold tracking-[0.25em] mr-3">view</span>
                                         <i class="text-white fa-solid fa-arrow-right"></i>
                                     </div>
